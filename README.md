@@ -1,24 +1,108 @@
-# Trading Analytics & Insights Platform (India-focused)
+# 📊 Trading Analytics & Insights Platform
 
-A comprehensive MERN stack application for Indian retail traders to analyze portfolios, track performance, and get smart trading insights.
+> A comprehensive MERN stack application for Indian retail traders to analyze portfolios, track performance, and get smart trading insights.
 
-## 🚀 Features
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-### Core Features (MVP)
-- ✅ **User Authentication** - JWT-based secure authentication
-- ✅ **Portfolio Management** - Multiple portfolios per user
-- ✅ **Holdings Tracking** - Support for Equity, Mutual Funds, Crypto, US Stocks
-- ✅ **Analytics Engine** - P&L, CAGR, XIRR, Drawdown, Volatility, Risk Score
-- ✅ **Asset & Sector Allocation** - Visual breakdown of investments
-- ✅ **Smart Alerts** - Price, Volume, RSI, Percentage move alerts
-- ✅ **Tax Estimation** - Indian STCG/LTCG calculations
-- ✅ **Benchmark Comparison** - Compare against NIFTY50, SENSEX, SP500
+## 🌟 Features
+
+### Core Functionality
+- ✅ **User Authentication** - Secure JWT-based authentication with bcrypt password hashing
+- ✅ **Portfolio Management** - Create and manage multiple portfolios with different asset types
+- ✅ **Advanced Analytics** - Comprehensive metrics including P&L, CAGR, XIRR, drawdown, and volatility
+- ✅ **Smart Alerts** - Rule-based alerts for price breakouts, volume spikes, RSI, and percentage moves
+- ✅ **Tax Estimation** - Indian tax calculations (STCG/LTCG) with FY-wise reports
+- ✅ **Asset Support** - Equity, Mutual Funds, Crypto, and US Stocks
+- ✅ **Benchmark Comparison** - Compare performance against NIFTY50, SENSEX, and S&P500
+
+### Analytics Metrics
+- Total Invested & Current Value
+- Unrealized & Realized P&L
+- Day P&L with percentage change
+- CAGR (Compound Annual Growth Rate)
+- XIRR (Extended Internal Rate of Return)
+- Maximum Drawdown Analysis
+- Portfolio Volatility
+- Risk Score (1-10 scale)
+- Asset & Sector Allocation
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB Atlas account (connection string provided)
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/gk2work/portfolios-analytics.git
+cd portfolios-analytics
+```
+
+2. **Setup Backend**
+```bash
+cd backend
+npm install
+npm run seed  # Seed demo data
+npm run dev   # Start backend server
+```
+
+3. **Setup Frontend** (in a new terminal)
+```bash
+cd frontend
+npm install
+npm run dev   # Start frontend server
+```
+
+4. **Access the application**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+
+### Demo Credentials
+```
+Email: demo@tradinganalytics.com
+Password: demo123
+```
+
+## 📁 Project Structure
+
+```
+├── backend/
+│   ├── src/
+│   │   ├── controllers/      # Request handlers
+│   │   ├── models/           # MongoDB schemas
+│   │   ├── routes/           # API routes
+│   │   ├── services/         # Business logic
+│   │   ├── middleware/       # Auth, validation, error handling
+│   │   └── utils/            # Utilities (seed data)
+│   └── server.js             # Entry point
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/       # Reusable components
+│   │   ├── pages/            # Page components
+│   │   ├── services/         # API service layer
+│   │   ├── context/          # React context
+│   │   └── App.jsx           # Main app component
+│   └── vite.config.js
+│
+├── README.md
+├── QUICK_START.md
+└── .gitignore
+```
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Node.js** + **Express.js** - REST API
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
 - **MongoDB** - Database (MongoDB Atlas)
+- **Mongoose** - ODM
 - **JWT** - Authentication
 - **Bcrypt** - Password hashing
 - **Joi** - Input validation
@@ -32,73 +116,7 @@ A comprehensive MERN stack application for Indian retail traders to analyze port
 - **Recharts** - Charts (ready to use)
 - **Vite** - Build tool
 
-## 📦 Installation & Setup
-
-### Prerequisites
-- Node.js (v16 or higher)
-- MongoDB Atlas account (connection string provided)
-
-### Backend Setup
-
-1. Navigate to backend directory:
-```bash
-cd backend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Environment variables are already configured in `.env` file with:
-   - MongoDB connection string
-   - JWT secret
-   - Email configuration (optional)
-
-4. Seed demo data:
-```bash
-npm run seed
-```
-
-5. Start the backend server:
-```bash
-npm run dev
-```
-
-Backend will run on `http://localhost:5000`
-
-### Frontend Setup
-
-1. Navigate to frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-Frontend will run on `http://localhost:3000`
-
-## 🔐 Demo Credentials
-
-```
-Email: demo@tradinganalytics.com
-Password: demo123
-```
-
-The demo account comes pre-loaded with:
-- Sample portfolio
-- 6 holdings (Indian stocks, US stocks, crypto)
-- 30 days of benchmark data
-
-## 📡 API Endpoints
+## 📊 API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - Register new user
@@ -107,113 +125,65 @@ The demo account comes pre-loaded with:
 - `PUT /api/auth/profile` - Update profile
 
 ### Portfolios
-- `POST /api/portfolios` - Create portfolio
 - `GET /api/portfolios` - Get all portfolios
+- `POST /api/portfolios` - Create portfolio
 - `GET /api/portfolios/:id` - Get single portfolio
 - `PUT /api/portfolios/:id` - Update portfolio
 - `DELETE /api/portfolios/:id` - Delete portfolio
 
 ### Holdings
-- `POST /api/holdings/portfolios/:portfolioId/holdings` - Add holding
 - `GET /api/holdings/portfolios/:portfolioId/holdings` - Get holdings
+- `POST /api/holdings/portfolios/:portfolioId/holdings` - Add holding
+- `POST /api/holdings/portfolios/:portfolioId/holdings/import` - Import CSV
 - `PUT /api/holdings/:id` - Update holding
 - `DELETE /api/holdings/:id` - Delete holding
-- `POST /api/holdings/portfolios/:portfolioId/holdings/import` - Import CSV
 
 ### Analytics
 - `GET /api/analytics/portfolios/:portfolioId/analytics` - Get portfolio analytics
 - `GET /api/analytics/portfolios/:portfolioId/analytics/benchmark` - Benchmark comparison
 
 ### Alerts
-- `POST /api/alerts` - Create alert
 - `GET /api/alerts` - Get all alerts
+- `POST /api/alerts` - Create alert
 - `PUT /api/alerts/:id` - Update alert
 - `DELETE /api/alerts/:id` - Delete alert
-- `POST /api/alerts/evaluate` - Manually evaluate alerts
 
-### Tax Reports
+### Tax
 - `GET /api/tax/portfolios/:portfolioId/tax-report` - Get tax report
 - `GET /api/tax/portfolios/:portfolioId/tax-report/fy-wise` - FY-wise report
 
-## 📊 Analytics Metrics
+## 🎯 Roadmap
 
-The platform calculates the following metrics:
+### Phase 1 (Current) ✅
+- [x] User authentication
+- [x] Portfolio & holdings management
+- [x] Analytics engine
+- [x] Smart alerts system
+- [x] Tax estimation
+- [x] Mock market data
 
-- **Total Invested** - Sum of all investments
-- **Current Value** - Current market value
-- **Unrealized P&L** - Profit/Loss on current holdings
-- **Realized P&L** - Profit/Loss from sold positions
-- **Day P&L** - Today's profit/loss
-- **CAGR** - Compound Annual Growth Rate
-- **XIRR** - Extended Internal Rate of Return
-- **Drawdown** - Maximum portfolio decline
-- **Volatility** - Portfolio volatility (annualized)
-- **Risk Score** - 1-10 scale based on volatility and drawdown
-- **Asset Allocation** - Breakdown by asset type
-- **Sector Allocation** - Breakdown by sector (for equities)
+### Phase 2 (Next)
+- [ ] Real-time market data integration
+- [ ] Advanced charting with Recharts
+- [ ] Complete alert management UI
+- [ ] Enhanced tax reports with PDF export
+- [ ] CSV import UI
 
-## 🔔 Alert Types
+### Phase 3 (Future)
+- [ ] Broker API integrations (Zerodha, Groww, Upstox)
+- [ ] AI-based trading insights
+- [ ] Mobile app (React Native)
+- [ ] Subscription tiers
+- [ ] Real-time WebSocket updates
 
-1. **Price Breakout** - Trigger when price crosses a threshold
-2. **Volume Spike** - Trigger on unusual volume
-3. **RSI** - Trigger on overbought/oversold conditions
-4. **Percent Move** - Trigger on percentage change
+## 🔐 Security
 
-## 💰 Tax Calculations
-
-Indian tax rules implemented:
-
-- **Equity STCG** - 15% (holding period ≤ 1 year)
-- **Equity LTCG** - 10% above ₹1 lakh (holding period > 1 year)
-- **Non-Equity STCG** - 30% (holding period ≤ 3 years)
-- **Non-Equity LTCG** - 20% with indexation (holding period > 3 years)
-
-**Note:** Tax calculations are approximate. Consult a tax professional for actual filing.
-
-## 📁 Project Structure
-
-```
-backend/
-├── src/
-│   ├── controllers/      # Request handlers
-│   ├── models/           # MongoDB schemas
-│   ├── routes/           # API routes
-│   ├── services/         # Business logic
-│   ├── middleware/       # Auth, validation, error handling
-│   ├── utils/            # Utilities (seed data)
-│   └── app.js            # Express app configuration
-├── server.js             # Entry point
-└── .env                  # Environment variables
-
-frontend/
-├── src/
-│   ├── components/       # Reusable components
-│   ├── pages/            # Page components
-│   ├── services/         # API service layer
-│   ├── context/          # React context (Auth)
-│   ├── App.jsx           # Main app component
-│   └── main.jsx          # Entry point
-├── index.html
-└── vite.config.js
-```
-
-## 🔮 Future Enhancements
-
-- Real-time market data integration (Alpha Vantage, Yahoo Finance)
-- Broker API integrations (Zerodha, Groww, Upstox)
-- Advanced charting with TradingView
-- AI-based trading insights
-- Subscription tiers (₹299-₹999)
-- Mobile app (React Native)
-- B2B analytics APIs
-- White-label solutions
-
-## 🐛 Known Limitations
-
-- Market data is currently **mocked** for demo purposes
-- Email notifications require SMTP configuration
-- Tax calculations are approximate
-- No real-time data updates (requires WebSocket integration)
+- JWT tokens with 7-day expiration
+- Bcrypt password hashing (10 rounds)
+- CORS enabled
+- Input validation with Joi
+- Protected API routes
+- Environment variables for secrets
 
 ## 📝 License
 
@@ -221,18 +191,11 @@ This project is for educational and demonstration purposes.
 
 ## 🤝 Contributing
 
-This is a demo project. For production use, consider:
-- Implementing real market data APIs
-- Adding comprehensive test coverage
-- Implementing rate limiting
-- Adding data encryption
-- Setting up CI/CD pipelines
-- Implementing caching (Redis)
-- Adding monitoring and logging
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📧 Support
+## 📧 Contact
 
-For questions or issues, please refer to the documentation or create an issue in the repository.
+For questions or support, please open an issue in the repository.
 
 ---
 
